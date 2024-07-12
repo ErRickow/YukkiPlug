@@ -273,12 +273,11 @@ async def cancelcmd(_, message):
 
 __MODULE__ = "TagAll"
 __HELP__ = """
-
 /admins | @admins | /report [text]
  Melaporkan kepada admin grup
  
-@all or /all | /tagall or  @tagall   
- Mention atau memanggil semua anggota grup
+/all | /tagall or  @tagall [text]  
+ Mention semua anggota grup
 
 /cancel or @cancel
  Menghentikan proses tagall 
