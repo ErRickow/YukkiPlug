@@ -24,9 +24,8 @@ async def chatgpt_chat(bot, message):
     await message.reply_text(results)
 
 
-__MODULE__ = "CʜᴀᴛGᴘᴛ"
+__MODULE__ = "ChatGPT"
 __HELP__ = """
-/advice - ɢᴇᴛ ʀᴀɴᴅᴏᴍ ᴀᴅᴠɪᴄᴇ ʙʏ ʙᴏᴛ
-/ai [ǫᴜᴇʀʏ] - ᴀsᴋ ʏᴏᴜʀ ǫᴜᴇsᴛɪᴏɴ ᴡɪᴛʜ ᴄʜᴀᴛɢᴘᴛ's ᴀɪ
-/gemini [ǫᴜᴇʀʏ] - ᴀsᴋ ʏᴏᴜʀ ǫᴜᴇsᴛɪᴏɴ ᴡɪᴛʜ ɢᴏᴏɢʟᴇ's ɢᴇᴍɪɴɪ ᴀɪ
-/bard [ǫᴜᴇʀʏ] -ᴀsᴋ ʏᴏᴜʀ ǫᴜᴇsᴛɪᴏɴ ᴡɪᴛʜ ɢᴏᴏɢʟᴇ's ʙᴀʀᴅ ᴀɪ"""
+/ai [pertanyaan] - Mengajukan pertanyaan ke AI
+/gemini [Pertanyaan] - ajukan pertanyaan Anda dengan penyair Google Gemini
+/bard [Pertanyaan] - Ajukan pertanyaan Anda dengan penyair Google AI"""
