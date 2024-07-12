@@ -30,7 +30,7 @@ from config import BANNED_USERS
 
 warnsdb = mongodb.warns
 
-__MODULE__ = "Bᴀɴ"
+__MODULE__ = "Groups"
 __HELP__ = """
 /ban - Ban A User
 /sban - Delete all messages of user that sended in group and ban the user
@@ -137,9 +137,9 @@ async def kickFunc(_, message: Message):
         )
     mention = (await app.get_users(user_id)).mention
     msg = f"""
-**ᴋɪᴄᴋᴇᴅ ᴜsᴇʀ:** {mention}
-**ᴋɪᴄᴋᴇᴅ ʙʏ:** {message.from_user.mention if message.from_user else 'ᴀɴᴏɴᴍᴏᴜs'}
-**ʀᴇᴀsᴏɴ:** {reason or 'ɴᴏ ʀᴇᴀsᴏɴ ᴘʀᴏᴠɪᴅᴇᴅ'}"""
+**Kicked Users:** {mention}
+**Kicked By:** {message.from_user.mention if message.from_user else 'ᴀɴᴏɴᴍᴏᴜs'}
+**Reason:** {reason or 'ɴᴏ ʀᴇᴀsᴏɴ ᴘʀᴏᴠɪᴅᴇᴅ'}"""
     await message.chat.ban_member(user_id)
     replied_message = message.reply_to_message
     if replied_message:
@@ -529,12 +529,12 @@ async def warn_user(_, message: Message):
     user_id, reason = await extract_user_and_reason(message)
     chat_id = message.chat.id
     if not user_id:
-        return await message.reply_text("ɪ ᴄᴀɴᴛ ғɪɴᴅ ᴛʜᴀᴛ ᴜsᴇʀ")
+        return await message.reply_text("Saya tidak dapat menemukan pengguna itu")
     if user_id == app.id:
-        return await message.reply_text("ɪ ᴄᴀɴ'ᴛ ᴡᴀʀɴ ᴍʏsᴇʟғ, ɪ ᴄᴀɴ ʟᴇᴀᴠᴇ ɪғ ʏᴏᴜ ᴡᴀɴᴛ.")
+        return await message.reply_text("Tidak bisa memperingatkan diri saya sendiri")
     if user_id in SUDOERS:
         return await message.reply_text(
-            "ɪ ᴄᴀɴ'ᴛ ᴡᴀʀɴ ᴍʏ ᴍᴀɴᴀɢᴇʀ's, ʙᴇᴄᴀᴜsᴇ ʜᴇ ᴍᴀɴᴀɢᴇ ᴍᴇ!"
+            "Tidak bisa memperingati admin!"
         )
     if user_id in [
         member.user.id
@@ -543,14 +543,14 @@ async def warn_user(_, message: Message):
         )
     ]:
         return await message.reply_text(
-            "ɪ ᴄᴀɴ'ᴛ ᴡᴀʀɴ ᴀɴ ᴀᴅᴍɪɴ, ʏᴏᴜ ᴋɴᴏᴡ ᴛʜᴇ ʀᴜʟᴇs sᴏ ᴅᴏ ɪ."
+            "Tidak bisa memperingati admin!"
         )
     user, warns = await asyncio.gather(
         app.get_users(user_id),
         get_warn(chat_id, await int_to_alpha(user_id)),
     )
     mention = user.mention
-    keyboard = ikb({"🚨  ʀᴇᴍᴏᴠᴇ ᴡᴀʀɴ  🚨": f"unwarn_{user_id}"})
+    keyboard = ikb({"🚨  Remove Warn  🚨": f"unwarn_{user_id}"})
     if warns:
         warns = warns["warns"]
     else:
@@ -560,15 +560,15 @@ async def warn_user(_, message: Message):
         await app.delete_user_history(message.chat.id, user_id)
     if warns >= 2:
         await message.chat.ban_member(user_id)
-        await message.reply_text(f"ɴᴜᴍʙᴇʀ ᴏғ ᴡᴀʀɴs ᴏғ {mention} ᴇxᴄᴇᴇᴅᴇᴅ, ʙᴀɴɴᴇᴅ!")
+        await message.reply_text(f"Jumlah Peringatan {mention} tercapai, Anda dibanned!")
         await remove_warns(chat_id, await int_to_alpha(user_id))
     else:
         warn = {"warns": warns + 1}
         msg = f"""
-**ᴡᴀʀɴᴇᴅ ᴜsᴇʀ:** {mention}
-**ᴡᴀʀɴᴇᴅ ʙʏ:** {message.from_user.mention if message.from_user else 'ᴀɴᴏɴᴍᴏᴜs'}
-**ʀᴇᴀsᴏɴ :** {reason or 'ɴᴏ ʀᴇᴀsᴏɴ ᴘʀᴏᴠᴏᴅᴇᴅ'}
-**ᴡᴀʀɴs:** {warns + 1}/3"""
+**Warned User:** {mention}
+**Warned By:** {message.from_user.mention if message.from_user else 'ᴀɴᴏɴᴍᴏᴜs'}
+**Reason:** {reason or 'Tidak ada alasan'}
+**Warns:** {warns + 1}/3"""
         replied_message = message.reply_to_message
         if replied_message:
             message = replied_message
@@ -584,8 +584,8 @@ async def remove_warning(_, cq: CallbackQuery):
     permission = "can_restrict_members"
     if permission not in permissions:
         return await cq.answer(
-            "ʏᴏᴜ ᴅᴏɴ'ᴛ ʜᴀᴠᴇ ᴇɴᴏᴜɢʜ ᴘᴇʀᴍɪssɪᴏɴs ᴛᴏ ᴘᴇʀғᴏʀᴍ ᴛʜɪs ᴀᴄᴛɪᴏɴ\n"
-            + f"ᴘᴇʀᴍɪssɪᴏɴ ɴᴇᴇᴅᴇᴅ: {permission}",
+            "Anda tidak memiliki izin yang cukup untuk melakukan tindakan ini\n"
+            + f"Memerlukan Izin: {permission}",
             show_alert=True,
         )
     user_id = cq.data.split("_")[1]
@@ -593,12 +593,12 @@ async def remove_warning(_, cq: CallbackQuery):
     if warns:
         warns = warns["warns"]
     if not warns or warns == 0:
-        return await cq.answer("ᴜsᴇʀ ʜᴀs ɴᴏ ᴡᴀʀɴɪɴɢs.")
+        return await cq.answer("Pengguna tidak memiliki peringatan.")
     warn = {"warns": warns - 1}
     await add_warn(chat_id, await int_to_alpha(user_id), warn)
     text = cq.message.text.markdown
     text = f"~~{text}~~\n\n"
-    text += f"__ᴡᴀʀɴ ʀᴇᴍᴏᴠᴇᴅ ʙʏ {from_user.mention}__"
+    text += f"Warn Dihapus Oleh: {from_user.mention}__"
     await cq.message.edit(text)
 
 
