@@ -22,5 +22,4 @@ def emojimix(client, message):
     except requests.RequestException as e:
         message.reply(f"Terjadi kesalahan saat menggabungkan emoji: {e}")
 
-# Menjalankan bot
-app.run()
+
