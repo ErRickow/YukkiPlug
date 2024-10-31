@@ -103,7 +103,7 @@ async def chk_usr(_, message: Message):
 
 
 @app.on_message(
-    filters.group & filters.command("pretender") & ~filters.bot & ~filters.via_bot
+    filters.group & filters.command("sangmata") & ~filters.bot & ~filters.via_bot
 )
 async def set_mataa(_, message: Message):
     admin_ids = [
@@ -115,34 +115,34 @@ async def set_mataa(_, message: Message):
     if message.from_user.id not in admin_ids:
         return
     if len(message.command) == 1:
-        return await message.reply("**ᴅᴇᴛᴇᴄᴛᴇᴅ ᴘʀᴇᴛᴇɴᴅᴇʀ ᴜsᴀɢᴇ:\n/pretender on|off**")
+        return await message.reply("**ᴅᴇᴛᴇᴄᴛᴇᴅ SangMata ᴜsᴀɢᴇ:\n/sangmata on|off**")
     chat_id = message.chat.id
     if message.command[1] == "on":
         cekset = await check_pretender(chat_id)
         if cekset:
             await message.reply(
-                f"ᴘʀᴇᴛᴇɴᴅᴇʀ ɪs ᴀʟʀᴇᴀᴅʏ ᴇɴᴀʙʟᴇᴅ ғᴏʀ **{message.chat.title}**"
+                f"SangMata ɪs ᴀʟʀᴇᴀᴅʏ ᴇɴᴀʙʟᴇᴅ ғᴏʀ **{message.chat.title}**"
             )
         else:
             await impo_on(chat_id)
             await message.reply(
-                f"sᴜᴄᴇssғᴜʟʟʏ ᴇɴᴀʙʟᴇᴅ ᴘʀᴇᴛᴇɴᴅᴇʀ ғᴏʀ **{message.chat.title}**"
+                f"sᴜᴄᴇssғᴜʟʟʏ ᴇɴᴀʙʟᴇᴅ SangMata ғᴏʀ **{message.chat.title}**"
             )
     elif message.command[1] == "off":
         cekset = await check_pretender(chat_id)
         if not cekset:
             await message.reply(
-                f"ᴘʀᴇᴛᴇɴᴅᴇʀ ɪs ᴀʟʀᴇᴀᴅʏ ᴅɪsᴀʙʟᴇᴅ ғᴏʀ **{message.chat.title}**"
+                f"SangMata ɪs ᴀʟʀᴇᴀᴅʏ ᴅɪsᴀʙʟᴇᴅ ғᴏʀ **{message.chat.title}**"
             )
         else:
             await impo_off(chat_id)
             await message.reply(
-                f"sᴜᴄᴇssғᴜʟʟʏ ᴅɪsᴀʙʟᴇᴅ ᴘʀᴇᴛᴇɴᴅᴇʀ ғᴏʀ **{message.chat.title}"
+                f"sᴜᴄᴇssғᴜʟʟʏ ᴅɪsᴀʙʟᴇᴅ SangMata ғᴏʀ **{message.chat.title}"
             )
     else:
-        await message.reply("**ᴅᴇᴛᴇᴄᴛᴇᴅ ᴘʀᴇᴛᴇɴᴅᴇʀ ᴜsᴀɢᴇ:\n/pretender on|off**")
+        await message.reply("**ᴅᴇᴛᴇᴄᴛᴇᴅ SangMata ᴜsᴀɢᴇ:\n/sangmata on|off**")
 
 
 __MODULE__ = "SangMata"
 __HELP__ = """
-/pretender - [Oɴ / ᴏғғ]  - ᴛᴏ ᴛᴜʀɴ ᴏɴ ᴏʀ ᴏғғ ᴘʀᴇᴛᴇɴᴅᴇʀ ғᴏʀ ʏᴏᴜ ᴄʜᴀᴛ ɪғ ᴀɴʏ ᴜsᴇʀ ᴄʜᴀɴɢᴇ ʜᴇʀ ᴜsᴇʀɴᴀᴍᴇ, ɴᴀᴍᴇ , ʙɪᴏ ʙᴏᴛ ᴡɪʟʟ sᴇɴᴅ ᴍᴇssᴀɢᴇ ɪɴ ʏᴏᴜʀ ᴄʜᴀᴛ"""
+/sangmata - [Oɴ / ᴏғғ]  - ᴛᴏ ᴛᴜʀɴ ᴏɴ ᴏʀ ᴏғғ SangMata ғᴏʀ ʏᴏᴜ ᴄʜᴀᴛ ɪғ ᴀɴʏ ᴜsᴇʀ ᴄʜᴀɴɢᴇ ʜᴇʀ ᴜsᴇʀɴᴀᴍᴇ, ɴᴀᴍᴇ , ʙɪᴏ ʙᴏᴛ ᴡɪʟʟ sᴇɴᴅ ᴍᴇssᴀɢᴇ ɪɴ ʏᴏᴜʀ ᴄʜᴀᴛ"""
