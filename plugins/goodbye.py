@@ -119,7 +119,7 @@ async def send_left_message(chat: Chat, user_id: int, delete: bool = False):
 @app.on_message(filters.command("setgoodbye") & ~filters.private)
 @adminsOnly("can_change_info")
 async def set_goodbye_func(_, message):
-    usage = "Yᴏᴜ ɴᴇᴇᴅ ᴛᴏ ʀᴇᴘʟʏ ᴛᴏ ᴀ ᴛᴇxᴛ, ɢɪғ ᴏʀ ᴘʜᴏᴛᴏ ᴛᴏ sᴇᴛ ɪᴛ ᴀs ɢᴏᴏᴅʙʏᴇ ᴍᴇssᴀɢᴇ.\n\nᴏᴛᴇs: ᴄᴀᴘᴛɪᴏɴ ʀᴇǫᴜɪʀᴇᴅ ғᴏʀ ɢɪғ ᴀɴᴅ ᴘʜᴏᴛᴏ."
+    usage = "ᴀɴᴅᴀ ʜᴀʀᴜs ᴍᴇᴍʙᴀʟᴀs ᴋᴇ ᴛᴇᴋs, ɢɪғ, ᴀᴛᴀᴜ ғᴏᴛᴏ ᴜɴᴛᴜᴋ ᴍᴇɴɢᴀᴛᴜʀɴʏᴀ sᴇʙᴀɢᴀɪ ᴘᴇsᴀɴ ɢᴏᴏᴅʙʏᴇ.\n\nᴏᴛᴇs: ᴄᴀᴘᴛɪᴏɴ ᴅɪᴘᴇʀʟᴜᴋᴀɴ ᴜɴᴛᴜᴋ ɢɪғ ᴅᴀɴ ғᴏᴛᴏ."
     key = InlineKeyboardMarkup(
         [
             [
