@@ -124,7 +124,7 @@ async def set_goodbye_func(_, message):
         [
             [
                 InlineKeyboardButton(
-                    text="More Help",
+                    text="Bantuan Lebih Lanjut",
                     url=f"t.me/{app.username}?start=greetings",
                 )
             ],
@@ -170,7 +170,7 @@ async def set_goodbye_func(_, message):
             )
         else:
             return await message.reply_text(
-                "Wʀᴏɴɢ ғᴏʀᴍᴀᴛᴛɪɴɢ, ᴄʜᴇᴄᴋ ᴛʜᴇ ʜᴇʟᴘ sᴇᴄᴛɪᴏɴ.\n\n**Usᴀsɢᴇ:**\nTᴛᴇxᴛ: `Text`\nᴛᴇxᴛ + ʙᴜᴛᴛᴏɴs: `Text ~ Buttons`",
+                "Wʀᴏɴɢ ғᴏʀᴍᴀᴛᴛɪɴɢ, ᴘᴇʀɪᴋsᴀ ʜᴇʟᴘ sᴇᴄᴛɪᴏɴ.\n\n**Usᴀsɢᴇ:**\nTᴛᴇxᴛ: `Text`\nᴛᴇxᴛ + ʙᴜᴛᴛᴏɴs: `Text ~ Buttons`",
                 reply_markup=key,
             )
     except UnboundLocalError:
