@@ -8,7 +8,7 @@ from YukkiMusic import api, app
 async def bard(bot, message):
     if len(message.command) < 2 and not message.reply_to_message:
         await message.reply_text(
-            "Example:\n\n`/bard tell me about lord rama and sita in brief `"
+            "Example:\n\n`/bard ceritakan tentang kisah romantis titanic`"
         )
         return
 
