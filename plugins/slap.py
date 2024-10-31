@@ -9,7 +9,7 @@ async def slap(client, message):
         if message.reply_to_message:
             await message.reply_video(
                 nekos.img("slap"),
-                caption=f"{message.from_user.mention} sʟᴀᴘᴘᴇᴅ {message.reply_to_message.from_user.mention}",
+                caption=f"{message.from_user.mention} sʟᴀᴘᴘᴇᴅ ʕ•́ᴥ•̀ʔっ {message.reply_to_message.from_user.mention}",
             )
         else:
             await message.reply_video(nekos.img("slap"))
