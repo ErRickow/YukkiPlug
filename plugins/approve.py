@@ -74,7 +74,7 @@ async def approval_cb(client, cb):
     if permission not in permissions:
         if from_user.id not in SUDOERS:
             return await cb.answer(
-                f"You don't have the required permission.\n Permission: {permission}",
+                f"Lu itu ga punya izin.\n Permission: {permission}",
                 show_alert=True,
             )
     command_parts = cb.data.split("_", 1)
@@ -188,7 +188,7 @@ async def manual(app, cb):
     if permission not in permissions:
         if from_user.id not in SUDOERS:
             return await cb.answer(
-                f"You don't have the required permission.\n Permission: {permission}",
+                f"Lu itu ga punya izin.\n Perizinan: {permission}",
                 show_alert=True,
             )
     datas = cb.data.split("_", 2)
