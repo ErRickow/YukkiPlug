@@ -175,7 +175,7 @@ async def set_goodbye_func(_, message):
             )
     except UnboundLocalError:
         return await message.reply_text(
-            "**Oɴʟʏ Tᴇxᴛ, Gɪғ ᴀɴᴅ Pʜᴏᴛᴏ ᴡᴇʟᴄᴏᴍᴇ ᴍᴇssᴀɢᴇ ᴀʀᴇ sᴜᴘᴘᴏʀᴛᴇᴅ.**"
+            "**Hᴀɴʏᴀ Tᴇxᴛ, Gɪғ, dan Pʜᴏᴛᴏ ᴍᴇssᴀɢᴇs ᴀʀᴇ sᴜᴘᴘᴏʀᴛᴇᴅ.**"
         )
 
 
