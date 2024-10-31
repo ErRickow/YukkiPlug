@@ -9,7 +9,7 @@ from YukkiMusic import api, app
 @app.on_message(filters.command(["google", "gle"]))
 async def google(bot, message):
     if len(message.command) < 2 and not message.reply_to_message:
-        await message.reply_text("Example:\n\n`/google lord ram`")
+        await message.reply_text("Example:\n\n`/google ErRickow`")
         return
 
     if message.reply_to_message and message.reply_to_message.text:
@@ -34,7 +34,7 @@ async def google(bot, message):
 @app.on_message(filters.command(["app", "apps"]))
 async def app(bot, message):
     if len(message.command) < 2 and not message.reply_to_message:
-        await message.reply_text("Example:\n\n`/app Free Fire`")
+        await message.reply_text("Example:\n\n`/app ff`")
         return
 
     if message.reply_to_message and message.reply_to_message.text:
