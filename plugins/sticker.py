@@ -17,13 +17,14 @@ from pyrogram.types import *
 
 from YukkiMusic import app
 from utils.error import capture_err
+from utils.kang import *
 
 BOT_USERNAME = app.username
 
 MAX_STICKERS = (
     120  # would be better if we could fetch this limit directly from telegram
 )
-SUPPORTED_TYPES = ["jpeg", "png", "webp"]
+
 STICKER_DIMENSIONS = (512, 512)
 
 
