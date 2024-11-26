@@ -16,6 +16,7 @@ from pyrogram.raw.types import *
 from pyrogram.types import *
 
 from YukkiMusic import app
+from .config import dumps
 from utils.error import capture_err
 from utils.kang import *
 
@@ -327,7 +328,7 @@ async def _(self: app, message):
         file = await self.save_file(filename)
         media = await self.invoke(
             SendMedia(
-                peer=(await self.resolve_peer(dump)),
+                peer=(await self.resolve_peer(dumps)),
                 media=InputMediaUploadedDocument(
                     file=file,
                     mime_type=self.guess_mime_type(filename),
@@ -399,7 +400,7 @@ async def _(self: app, message):
         await prog_msg.edit_text(
             f"<b>Sticker Anda Berhasil Dibuat!</b>\n<b><a href=https://t.me/addstickers/{packname}>👀 Lihat Paket Sticker Disini</a></b>\n<b>Emoji:</b> {sticker_emoji}"
         )
-        await self.delete_messages(chat_id=dump, message_ids=msg_.id, revoke=True)
+        await self.delete_messages(chat_id=dumps, message_ids=msg_.id, revoke=True)
         try:
             os.remove(filename)
         except OSError:
