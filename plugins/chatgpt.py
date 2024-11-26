@@ -1,6 +1,6 @@
 from pyrogram import filters
 from pyrogram.enums import ChatAction
-from TheApi import api
+from ApiNyaEr import apinya
 
 from YukkiMusic import app
 from config import BANNED_USERS
@@ -20,7 +20,7 @@ async def chatgpt_chat(bot, message):
         user_input = " ".join(message.command[1:])
 
     await bot.send_chat_action(message.chat.id, ChatAction.TYPING)
-    results = api.chatgpt(user_input)
+    results = await apinya.ai(user_input)
     await message.reply_text(results)
 
 
@@ -28,4 +28,3 @@ __MODULE__ = "ChatGPT"
 __HELP__ = """
 /ai [pertanyaan] - Mengajukan pertanyaan ke AI
 /gemini [Pertanyaan] - ajukan pertanyaan Anda dengan penyair Google Gemini
-/bard [Pertanyaan] - Ajukan pertanyaan Anda dengan penyair Google AI"""
