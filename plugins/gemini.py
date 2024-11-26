@@ -1,5 +1,5 @@
 import requests
-from MukeshAPI import api
+from ApiNyaEr import apinya
 from pyrogram import filters
 from pyrogram.enums import ChatAction
 from YukkiMusic import app
@@ -23,7 +23,7 @@ async def gemini_handler(client, message):
             return
 
     try:
-        response = api.gemini(user_input)
+        response = apinya.gemini(user_input)
         await app.send_chat_action(message.chat.id, ChatAction.TYPING)
         x = response["results"]
         if x:
