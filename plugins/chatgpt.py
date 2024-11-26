@@ -27,4 +27,4 @@ async def chatgpt_chat(bot, message):
 __MODULE__ = "ChatGPT"
 __HELP__ = """
 /ai [pertanyaan] - Mengajukan pertanyaan ke AI
-/gemini [Pertanyaan] - ajukan pertanyaan Anda dengan penyair Google Gemini
+/gemini [Pertanyaan] - ajukan pertanyaan Anda dengan penyair Google Gemini"""
