@@ -16,7 +16,7 @@ from pyrogram.raw.types import *
 from pyrogram.types import *
 
 from YukkiMusic import app
-from .config import dumps
+from config.config import dumps
 from utils.error import capture_err
 from utils.kang import *
 
